@@ -11,6 +11,13 @@ import { SwearList } from '../components/SwearList/swearList.jsx';
 export const App = () => {
   const [swears, setSwears] = useState([]);
   const [loading, setLoading] = useState(true);
+  const addSwear = async (newGoal) => {
+    const response = await fetch ('https://technigo-project-final-2bxx.onrender.com/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newGoal)
+    });
+    }
 
   useEffect(() => {
     getSwears()

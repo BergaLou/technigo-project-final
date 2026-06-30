@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8080/swears';
+const API_URL = 'https://technigo-project-final-2bxx.onrender.com/swears';
 
 export const getSwears = async () => {
     const response = await fetch(API_URL);
