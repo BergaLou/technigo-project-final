@@ -16,7 +16,6 @@
     "cors": "^2.8.5",
     "express": "^4.17.3",
     "mongoose": "^8.4.0",
-    "nodemon": "^3.0.1",
-    "project-final-parent": "file:.."
+    "nodemon": "^3.0.1"
   }
 }
