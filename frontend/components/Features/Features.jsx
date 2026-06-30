@@ -9,16 +9,16 @@ export const Features = () => {
     ];
 
     return (
-        <section className="bg-black py-16 px-6 ">
-            <div className="max-w-6-xl mx-auto flex flex-row justify-center gap-6 overflow-x-auto">
-        
-                    <h2 className="text-3xl font-black italic uppercase text-white p-10 mb-10 object-contain items-center">
+        <section className="bg-black py-16 px-6">
+            <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center md:items-start">
+                
+                <h2 className="text-3xl md:text-5xl font-black italic uppercase text-white text-center md:text-left md:w-1/3">
                     YOUR RULES. <br />
                     YOUR RIVALS.<br />
-                    <span className="text-[#f92e5d]">
-                    YOUR REIGN.</span>
-                    </h2>
-                <div className="flex flex-row justify-center gap-6 overflow-x-auto">
+                    <span className="text-[#f92e5d]">YOUR REIGN.</span>
+                </h2>
+
+                <div className="flex flex-col md:flex-row gap-6 justify-center">
                     {cardData.map((card, index) => (
                         <SwearCard
                             key={index}

@@ -1,0 +1,1 @@
+export const Duels = () => <div>Här kommer Challenge-sidan snart!</div>;

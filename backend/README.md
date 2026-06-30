@@ -4,5 +4,4 @@ This project includes the packages and babel setup for an express server, and is
 
 ## Getting Started
 
-1.  Install the required dependencies using `npm install`.
-2.  Start the development server using `npm run dev`.
+https://technigo-project-final-2bxx.onrender.com/ - backend

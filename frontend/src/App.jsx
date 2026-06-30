@@ -1,50 +1,58 @@
-import { useEffect, useState } from "react";
-import { getSwears } from "../services/api";
+import { useContext } from "react";
+import { Routes, Route } from "react-router-dom";
+import { SwearContext } from "./context/SwearContext.jsx";
 import { Header } from '../components/Header/Header.jsx';
 import { Hero } from '../components/Hero/Hero.jsx';
 import { Features } from "../components/Features/Features.jsx";
-import { HowItWorks } from "../components/HowItWorks.jsx"
+import { HowItWorks } from "../components/HowItWorks.jsx";
 import { CTA } from "../components/CallToAction/CTA.jsx";
 import { Footer } from '../components/Footer/Footer.jsx';
 import { SwearList } from '../components/SwearList/swearList.jsx';
 
+import { Challenge } from '../components/Challenge/Challenge.jsx';
+import { Duels } from '../components/Duels/Duels.jsx';
+import { LeaderBoard } from '../components/LeaderBoard/LeaderBoard.jsx';
+import { Arena } from '../components/Arena/Arena.jsx';
+import { TTC } from '../components/TakeTheChallenge/TTC';
+
 export const App = () => {
-  const [swears, setSwears] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const addSwear = async (newGoal) => {
-    const response = await fetch ('https://technigo-project-final-2bxx.onrender.com/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newGoal)
-    });
-    }
+  // Vi hämtar datan från vår globala Context
+  const { swears, loading } = useContext(SwearContext);
 
-  useEffect(() => {
-    getSwears()
-      .then(data => {
-        setSwears(data)
-        setLoading(false);
-      })
-      .catch(err => console.error(err));
-  }, []);
-
-  if (loading) return <div>Loading...</div>
+  if (loading) {
+    return <div className="bg-black min-h-screen text-white text-center p-20">Loading...</div>;
+  }
 
   return (
     <div className="bg-black min-h-screen text-white">
       <Header />
-      
+
       <main>
-        <Hero />
-        <Features />
-        <HowItWorks />
-        <CTA />
-        <section className="p-10">
-          <SwearList swears={swears} />
-        </section>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Features />
+                <HowItWorks />
+                <CTA />
+                <section className="p-10">
+                  <SwearList swears={swears} />
+                </section>
+              </>
+            }
+          />
+
+        <Route path="/challenge" element={<Challenge />} />
+        <Route path="/duel" element={<Duels />} />
+        <Route path="/LeaderBoard" element={<LeaderBoard />} />
+        <Route path="/arena" element={<Arena />} />
+        <Route path="/TTC" element={<TTC />} />
+        </Routes>
       </main>
 
       <Footer />
     </div>
-  )
-}
+  );
+};
