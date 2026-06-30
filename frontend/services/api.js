@@ -1,4 +1,4 @@
-const API_URL = 'https://technigo-project-final-2bxx.onrender.com/swears';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/swears';
 
 export const getSwears = async () => {
     const response = await fetch(API_URL);
@@ -6,7 +6,7 @@ export const getSwears = async () => {
     return response.json();
 };
 
-export const  createSwear = async (data) => {
+export const createSwear = async (data) => {
     const response = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

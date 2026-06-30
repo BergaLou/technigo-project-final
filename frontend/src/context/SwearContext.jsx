@@ -9,16 +9,19 @@ export const SwearProvider = ({ children }) => {
 
     useEffect(() => {
         getSwears()
-        .then(data => {
+        .then((data) => {
             setSwears(data);
             setLoading(false);
         })
-        .catch(err => console.error(err));
+        .catch((err) => {
+            console.error(err);
+            setLoading(false);
+        });
     }, []);
 
     return (
         <SwearContext.Provider value={{ swears, setSwears, loading }}>
-            
+            {children}
         </SwearContext.Provider>
-    )
-}
+    );
+};
