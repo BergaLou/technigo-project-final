@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'Duel';
+    src: url('./assets/fonts/duel.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
